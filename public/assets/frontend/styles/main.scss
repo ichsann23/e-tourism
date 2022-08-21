@@ -1,0 +1,284 @@
+body {
+    background-color: #e4e6eb;
+    font-family: "Assistant", sans-serif;
+    color: #071c4d;
+}
+
+//navbar
+
+.navbar-brand {
+    img {
+        max-height: 40px;
+    }
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.navbar-light {
+    .navbar-nav {
+        .nav-link {
+            color: #071c4d;
+
+            &.active {
+                font-weight: bold;
+                color: #071c4d !important;
+            }
+        }
+    }
+}
+
+.btn-navbar-right {
+    margin-top: -8px !important;
+    margin-bottom: -8px !important;
+    margin-right: -18px !important;
+
+    height: 71px;
+    border-radius: 0;
+}
+
+.btn-login {
+    background-color: #071c4d;
+    color: #ffff;
+
+    &:hover {
+        background-color: #1e3771;
+        color: #fff;
+    }
+}
+
+//header
+header {
+    padding: 180px 0 290px;
+    margin-top: -71px;
+    background-image: url("../images/gunung2.JPG");
+    background-size: cover;
+
+    h1,
+    p {
+        color: #fff;
+    }
+    h1 {
+        font-weight: bold;
+        font-size: 50px;
+    }
+    p {
+        font-size: 22px;
+    }
+    .btn-get-started {
+        background-color: #ff9e53;
+        color: #fff;
+
+        &:hover {
+            background-color: #ffaa69;
+            color: #fff;
+        }
+    }
+}
+
+//typography
+.wrap {
+    padding: 180px 0 280px;
+}
+
+.txt1 {
+    font-size: larger;
+
+    letter-spacing: 3px;
+    word-spacing: 3px;
+    line-height: 40px;
+    text-align: justify;
+}
+.txt2 {
+    font-size: larger;
+
+    letter-spacing: 3px;
+    word-spacing: 3px;
+    line-height: 40px;
+    text-align: justify;
+}
+
+//penginapan
+.section-penginapan {
+    min-height: 540px;
+    background-color: #051334;
+    margin-top: -50px;
+    margin-bottom: -230px;
+}
+
+.section-penginapan .section-penginapan-heading {
+    margin-top: 150px;
+}
+
+.section-penginapan .section-penginapan-heading h2,
+.section-penginapan .section-penginapan-heading p {
+    color: #fff;
+}
+
+.section-penginapan .section-penginapan-heading h2 {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.section-penginapan .section-penginapan-heading p {
+    font-size: 18px;
+}
+
+.section-penginapan-content .section-penginapan-travel .card-travel {
+    min-height: 380px;
+    background-color: #000;
+    color: #fff;
+    padding: 30px;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.section-penginapan-content .section-penginapan-travel .travel-country {
+    font-size: 16px;
+    color: #051334;
+}
+
+.section-penginapan-content .section-penginapan-travel .travel-location {
+    font-size: 20px;
+    color: #ff9e53;
+}
+
+.section-penginapan-content
+    .section-penginapan-travel
+    .travel-button
+    .btn-travel-details {
+    background-color: #ff9e53;
+    color: #fff;
+}
+
+.section-penginapan-content
+    .section-penginapan-travel
+    .travel-button
+    .btn-travel-details:hover {
+    background-color: #ffaa69;
+    color: #fff;
+}
+//footer
+.footer {
+    background: #051334;
+    height: auto;
+    padding-top: 30px;
+    color: #fff;
+    font-family: "Assistant", sans-serif;
+}
+.footer-content {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer-content h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footer-content p {
+    max-width: 500px;
+    line-height: 28px;
+    font-size: 14px;
+    margin: 10px auto;
+}
+.socials {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 0rem -3rem;
+}
+.socials li {
+    margin: 0 10px;
+}
+.socials a {
+    text-decoration: none;
+    color: #fff;
+}
+.socials a i {
+    font-size: 1.1rem;
+    transition: color 0.4s ease;
+}
+.socials a:hover i {
+    color: #ff9e53;
+}
+.footer-bottom {
+    background: #051334;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-bottom p {
+    font-size: 14px;
+    color: #fff;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footer-bottom span {
+    text-transform: uppercase;
+    opacity: 0.4;
+}
+
+//transportasi
+.section-transportasi {
+    min-height: 540px;
+    background-color: #051334;
+    margin-top: 40px;
+    margin-bottom: -230px;
+}
+
+.section-transportasi .section-transportasi-heading {
+    margin-top: 150px;
+}
+
+.section-transportasi .section-transportasi-heading h2,
+.section-transportasi .section-transportasi-heading p {
+    color: #fff;
+}
+
+.section-transportasi .section-transportasi-heading h2 {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.section-transportasi .section-transportasi-heading p {
+    font-size: 18px;
+}
+
+.section-transportasi-content .section-transportasi-travel .card-travel {
+    min-height: 380px;
+    background-color: #000;
+    color: #fff;
+    padding: 30px;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.section-transportasi-content .section-transportasi-travel .travel-country {
+    font-size: 20px;
+    color: #051334;
+    font-weight: bold;
+}
+
+.section-transportasi-content .section-transportasi-travel .travel-location {
+    font-size: 20px;
+    color: #ff9e53;
+}
+
+.section-transportasi-content
+    .section-transportasi-travel
+    .travel-button
+    .btn-travel-details {
+    background-color: #ff9e53;
+    color: #fff;
+}
+
+.section-transportasi-content
+    .section-transportasi-travel
+    .travel-button
+    .btn-travel-details:hover {
+    background-color: #ffaa69;
+    color: #fff;
+}
