@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,700,800 | playfair+Display:400,400i,700,700i,900,900i&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('assets/frontend/styles/main.css')}}" />
+    @stack('costum-css')
 </head>
 
 <body>
@@ -31,6 +32,7 @@
     <script src="{{ asset('assets/frontend/libraries/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ asset('assets/frontend/libraries/retina/retina.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 @include('layouts.user.footer')
 

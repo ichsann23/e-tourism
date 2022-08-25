@@ -8,6 +8,7 @@
                <li class="nav-item mx-md-2"><a href="{{ url('/') }}" class="nav-link active">Beranda</a></li>
                <li class="nav-item mx-md-2"><a href="{{ url('/penginapan') }}" class="nav-link">Penginapan</a></li>
                <li class="nav-item mx-md-2"><a href="{{url('/transportasi')}}" class="nav-link">Transportasi</a></li>
+               <li class="nav-item mx-md-2"><a href="{{ url('blog') }}" class="nav-link">Blog</a></li>
                <li class="nav-item mx-md-2"><a href="{{ url('virtual-tour') }}" class="nav-link">Virtual Tour</a></li>
            </ul>
        </div>

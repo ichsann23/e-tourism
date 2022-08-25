@@ -42,7 +42,7 @@
                 <p class="harga-lama">Harga: <span>Rp.150.000</span></p>
             </div>
             <div class="penginapan-detail">
-                <h2>tentang penginapan</h2>
+                <h2>tentang transportasi</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, cumque neque eaque ipsam reprehenderit illum quasi obcaecati ullam. Sit aut cumque enim mollitia excepturi voluptate?</p>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi repudiandae dicta esse reprehenderit praesentium quae.</p>
                 <ul>

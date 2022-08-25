@@ -1,7 +1,7 @@
 @extends('layouts.user.master')
 @section('title','Beranda')
 @section('header')
-<header class="text-center">
+<header class="text-center topi">
     <h1>
         Explore The Beautiful world
         <br />

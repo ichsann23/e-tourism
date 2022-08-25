@@ -47,6 +47,15 @@ Route::get('/admin/tambahPenginapan', function () {
     return view('admin/penginapan/tambahPenginapan');
 });
 
+Route::get('/admin/tambahUser', function () {
+    return view('admin/users/tambahUser');
+});
+
+Route::get('/admin/dataUser', function () {
+    return view('admin/users/dataUser');
+});
+
+
 Route::get('/admin/editPenginapan', function () {
     return view('/admin/penginapan/editPenginapan');
 });
@@ -62,6 +71,13 @@ Route::get('/admin/tambahTransportasi', function () {
 
 Route::get('/admin/login', function () {
     return view('/admin/users/login');
+});
+
+Route::get('/blog', function () {
+    return view('/user/blog/blog');
+});
+Route::get('/blogDetail', function () {
+    return view('/user/blog/detailBlog');
 });
 
 
