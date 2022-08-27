@@ -40,24 +40,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td><img src="" alt="" width="100px" height="100px" srcset=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td class="">
-                                        <a href="">
-                                            <button type="button" class="btn btn-success "><i class="fa fa-edit"></i></button>
-                                        </a>
-                                        <a href="">
-                                            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                        </a>
+                                 <tr>
+                                    <td>Reddorz</td>
+                                    <td>maros indonesia
                                     </td>
-                                </tr>                                
+                                    <td>08765432123</td>
+                                    <td>https://aasdffdf.com</td>
+                                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, repellendus. Eligendi illum inventore, corporis mollitia autem soluta deserunt excepturi quaerat? </td>
+                                    <td><img src="{{asset('assets/frontend/images/hotel.jpg')}}" alt="" width="100px" height="100px" srcset=""></td>
+                                    <td>6 kursi, ac, full bahan bakar</td>
+                                    <td>150.000</td>
+                                    <td class="">
+                                        <button type="button" class="btn btn-success "><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
                             </tbody>
                             <tfoot>
                                 <tr>

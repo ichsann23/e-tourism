@@ -36,7 +36,7 @@
         </div>
         <!--card right  -->
         <div class="penginapan-content">
-            <h2 class="penginapan-title">Reddoors</h2>
+            <h2 class="penginapan-title">Paramount</h2>
             <a href="" class="penginapan-link">kunjungi</a>
             <div class="harga-penginapan">
                 <p class="harga-lama">Harga: <span>Rp.150.000</span></p>

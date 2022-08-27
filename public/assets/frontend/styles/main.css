@@ -37,28 +37,28 @@ body {
   color: #fff;
 }
 
-header {
+.topi {
   padding: 180px 0 290px;
   margin-top: -71px;
   background-image: url("../images/gunung2.JPG");
   background-size: cover;
 }
-header h1,
-header p {
+.topi h1,
+.topi p {
   color: #fff;
 }
-header h1 {
+.topi h1 {
   font-weight: bold;
   font-size: 50px;
 }
-header p {
+.topi p {
   font-size: 22px;
 }
-header .btn-get-started {
+.topi .btn-get-started {
   background-color: #ff9e53;
   color: #fff;
 }
-header .btn-get-started:hover {
+.topi .btn-get-started:hover {
   background-color: #ffaa69;
   color: #fff;
 }

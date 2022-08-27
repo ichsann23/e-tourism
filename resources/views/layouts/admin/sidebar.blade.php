@@ -36,6 +36,32 @@
              </li>
              <li class="treeview">
                  <a href="#">
+                     <i class="fa fa-book"></i> <span>Blog</span>
+                     <span class="pull-right-container">
+                         <i class="fa fa-angle-left pull-right"></i>
+                     </span>
+                 </a>
+                 <ul class="treeview-menu">
+                     <li><a href="#"><i class="fa fa-plus"></i> Tambah Data</a></li>
+                     <li><a href="#"><i class="fa fa-database"></i>Data Blog</a></li>
+                 </ul>
+             </li>
+
+             <li class="treeview">
+                 <a href="#">
+                     <i class="fa fa-user"></i> <span>User</span>
+                     <span class="pull-right-container">
+                         <i class="fa fa-angle-left pull-right"></i>
+                     </span>
+                 </a>
+                 <ul class="treeview-menu">
+                     <li><a href="{{ url('admin/tambahUser') }}"><i class="fa fa-plus"></i> Tambah Data</a></li>
+                     <li><a href="{{ url('admin/dataUser') }}"><i class="fa fa-database"></i>Data User</a></li>
+                 </ul>
+             </li>
+
+             <li class="treeview">
+                 <a href="#">
                      <i class="fa fa-sign-out"></i> <span>Keluar</span>
                  </a>
              </li>
