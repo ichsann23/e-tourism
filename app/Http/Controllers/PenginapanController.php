@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\penginapan;
+use App\Models\Penginapan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PenginapanController extends Controller
 {
@@ -14,7 +16,11 @@ class PenginapanController extends Controller
      */
     public function index()
     {
-        return view('admin.dataPenginapan');
+        $data = Penginapan::paginate(10);
+
+        return view('admin.penginapan.dataPenginapan',[
+            'data' => $data
+        ]);
     }
 
     /**
@@ -24,7 +30,7 @@ class PenginapanController extends Controller
      */
     public function create()
     {
-        return view('admin.tambahPenginapan');
+        return view('admin.penginapan.tambahPenginapan');
     }
 
     /**
@@ -35,31 +41,49 @@ class PenginapanController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        // $request->validate([
-        //     'nama' => 'required',
-        //     'link' => 'required',
-        //     'alamat' => 'required',
-        //     'nohp' => 'required',
-        //     'harga' => 'required',
-        //     'fasilitas' => 'required',
-        //     'ulasan' => 'required',
-        //     'foto' => 'required |image|mimes:jepg,png,jpg|max:2048'
-        // ]);
+        $messages = [
+            'required' => ':attribute tidak boleh kosong.',
+            'mimes' => ':attribute harus berformat :values.',
+        ];
 
-        // $image = $request->file('foto');
-        // $new_image = rand() . '.' . $image->getClientOriginalExtension();
+        $request->validate([
+            'nama' => 'required',
+            'link' => 'required',
+            'alamat' => 'required',
+            'nohp' => 'required',
+            'harga' => 'required',
+            'fasilitas' => 'required',
+            'ulasan' => 'required',
+            'foto' => 'required |image|mimes:jepg,png,jpg|max:2048'
+        ], $messages);
 
-        // $dataPenginapan = array(
-        //     'nama' => $request->nama,
-        //     'nama' => $request->link,
-        //     'alamat' => $request->alamat,
-        //     'mohp' => $request->mohp,
-        //     'harga' => $request->harga,
-        //     'fasilitas' => $request->fasilitas,
-        //     'ulasan' => $request->ulasan,
-        //     'foto' => $request->$new_image
-        // );
+        if ($request->hasfile('foto')) {
+            $file = $request->file('foto');
+            $ext = $file->extension();
+            $fileName = Str::slug($request->nama, "-") . '-' . uniqid();
+
+            $urlName = 'assets/media/penginapan/' . $fileName . '.' . $ext;
+        }
+
+        $save = Penginapan::create([
+            'foto' => $urlName,
+            'nama' => $request->nama,
+            'link' => $request->link,
+            'alamat' => $request->alamat,
+            'nohp' => $request->nohp,
+            'harga' => $request->harga,
+            'fasilitas' => $request->fasilitas,
+            'ulasan' => $request->ulasan,
+        ]);
+
+        if ($save) {
+            if ($request->hasfile('foto')) {
+                $file->storeAs('public/assets/media/penginapan', $fileName . '.' . $ext);
+            }
+            return redirect()->route('admin.penginapan');
+        } else {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -100,8 +124,22 @@ class PenginapanController extends Controller
      * @param  \App\Models\penginapan  $penginapan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(penginapan $penginapan)
+    public function destroy(Penginapan $model, $id)
     {
-        //
+        \DB::beginTransaction();
+        try {
+            $data = $model->findOrFail($id);
+
+            if (Storage::exists('public/'.$data->foto)) {
+                Storage::delete('public/'.$data->foto);
+            }
+
+            $data->delete();
+        } catch (\Exception $exception) {
+            \DB::rollback();
+            return redirect()->back();
+        }
+        \DB::commit();
+        return redirect()->back();
     }
 }

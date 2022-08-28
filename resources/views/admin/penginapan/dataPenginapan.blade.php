@@ -21,13 +21,14 @@
             <div class="col-lg-12">
                 <div class="box">
                     <div class="box-header">
-                        <button class="btn btn-primary">Tambah data</button>
+                        <a class="btn btn-primary" href="{{ route('admin.penginapan.tambah') }}">Tambah data</a>
                     </div>
 
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th>No. </th>
                                     <th>Nama </th>
                                     <th>Alamat</th>
                                     <th>No hp</th>
@@ -40,24 +41,39 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                 <tr>
-                                    <td>Reddorz</td>
-                                    <td>maros indonesia
-                                    </td>
-                                    <td>08765432123</td>
-                                    <td>https://aasdffdf.com</td>
-                                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, repellendus. Eligendi illum inventore, corporis mollitia autem soluta deserunt excepturi quaerat? </td>
-                                    <td><img src="{{asset('assets/frontend/images/hotel.jpg')}}" alt="" width="100px" height="100px" srcset=""></td>
-                                    <td>6 kursi, ac, full bahan bakar</td>
-                                    <td>150.000</td>
-                                    <td class="">
-                                        <button type="button" class="btn btn-success "><i class="fa fa-edit"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                    </td>
-                                </tr>
+                                @foreach ($data as $key => $item)
+                                    <tr>
+                                        <td>{{++$key}}</td>
+                                        <td>{{$item->nama}}</td>
+                                        <td>{{$item->alamat}}</td>
+                                        <td>{{$item->nohp}}</td>
+                                        <td><a href="{{$item->link}}" target="_blank">{{$item->link}}</a></td>
+                                        <td>
+                                            {{$item->ulasan}}
+                                        </td>
+                                        <td>
+                                            <img src="{{asset('storage/'.$item->foto)}}" alt="" width="100px" height="100px" srcset="">
+                                        </td>
+                                        <td>{{$item->fasilitas}}</td>
+                                        <td>{{$item->harga}}</td>
+                                        <td class="">
+                                            {{-- <button type="button" class="btn btn-success "><i class="fa fa-edit"></i></button> --}}
+                                            <a 
+                                                href="#modalDelete" 
+                                                data-href="{{route('admin.penginapan.hapus', $item->id)}}"
+                                                type="button" 
+                                                data-toggle="modal"
+                                                data-target="#modalDelete"
+                                                class="btn btn-danger">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                             <tfoot>
                                 <tr>
+                                    <th>No. </th>
                                     <th>Nama </th>
                                     <th>Alamat</th>
                                     <th>No hp</th>
@@ -81,5 +97,37 @@
     </section>
     <!-- /.content -->
 </div>
-
+<!--Message Modal-->
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDelete">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content b-0">
+            <div class="modal-header r-0 bg-danger">
+                <h6 class="modal-title text-white" id="exampleModalLabel"><i class="icon-trash"></i> Hapus Data</h6>
+                <a href="#" data-dismiss="modal" aria-label="Close"
+                    class="paper-nav-toggle paper-nav-white active"><i></i></a>
+            </div>
+            <form method="post" class="act-ok" action="">
+                @csrf
+                <input name="_method" type="hidden" value="DELETE">
+                <div class="modal-body no-b">
+                    <p>Apakah anda yakin ingin menghapus data ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger l-s-1 s-12 text-uppercase" type="submit">
+                        Hapus Data
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection
+@section('script')
+<script>
+    //config datatable 
+        $('#modalDelete').on('show.bs.modal', function(e) {
+            console.log('test');
+            $(this).find('.act-ok').attr('action', $(e.relatedTarget).data('href'));
+        });
+</script>
 @endsection
