@@ -42,8 +42,8 @@
                      </span>
                  </a>
                  <ul class="treeview-menu">
-                     <li><a href="#"><i class="fa fa-plus"></i> Tambah Data</a></li>
-                     <li><a href="#"><i class="fa fa-database"></i>Data Blog</a></li>
+                     <li><a href="{{ route('admin.blog.tambah') }}"><i class="fa fa-plus"></i> Tambah Data</a></li>
+                     <li><a href="{{ route('admin.blog') }}"><i class="fa fa-database"></i>Data Blog</a></li>
                  </ul>
              </li>
 

@@ -16,73 +16,38 @@
         <div class="col-lg-8">
             <!-- Featured blog post-->
             <div class="card mb-4">
-                <a href="#!"><img class="card-img-top" src="{{ asset('assets/frontend/images/header1.jpg') }}" alt="..." /></a>
+                <a href="#!"><img class="card-img-top" src="{{ asset('storage/'.$first->sampul) }}" alt="{{ $first->judul }}" /></a>
                 <div class="card-body">
-                    <div class="small text-muted">Agustus 22, 2022</div>
-                    <h2 class="card-title">Featured Post Title</h2>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                    <a class="btn btn-primary" href="{{ url('blogDetail') }}">Read more →</a>
+                    <div class="small text-muted">{{ $first->created_at->diffForHumans() }}</div>
+                    <h2 class="card-title">{{ $first->juudl }}</h2>
+                    <p class="card-text">
+                        {{ $first->tajuk_utama }}
+                    </p>
+                    <a class="btn btn-primary" href="{{ route('blog.detail', ['slug' => $first->slug]) }}">Read more →</a>
                 </div>
             </div>
             <!-- Nested row for non-featured blog posts-->
             <div class="row">
+                @foreach ($data as $item)
                 <div class="col-lg-6">
                     <!-- Blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="{{ asset('assets/frontend/images/header1.jpg') }}" alt="..." /></a>
+                        <a href="#!"><img class="card-img-top" src="{{ asset('storage/'.$item->sampul) }}" alt="..." /></a>
                         <div class="card-body">
-                            <div class="small text-muted">Agustus 22, 2022</div>
-                            <h2 class="card-title h4">Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                            <a class="btn btn-primary" href="#">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- Blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="{{ asset('assets/frontend/images/header1.jpg') }}" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">Agustus 22, 2022</div>
-                            <h2 class="card-title h4">Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
+                            <div class="small text-muted">{{ $item->created_at->diffForHumans() }}</div>
+                            <h2 class="card-title h4">{{ $item->judul }}</h2>
+                            <p class="card-text">
+                                {{ $item->tajuk_utama }}
+                            </p>
+                            <a class="btn btn-primary" href="{{ route('blog.detail', ['slug' => $item->slug]) }}">Read more →</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <!-- Blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="{{ asset('assets/frontend/images/header1.jpg') }}" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">Agustus 22, 2022</div>
-                            <h2 class="card-title h4">Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- Blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="{{ asset('assets/frontend/images/header1.jpg') }}" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">Agustus 22, 2022</div>
-                            <h2 class="card-title h4">Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <!-- Pagination-->
             <nav aria-label="Pagination">
-                <hr class="my-0" />
-                <ul class="pagination justify-content-center my-4">
-                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                    <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                    <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">Older</a></li>
-                </ul>
+                {{ $data->links('vendor.pagination.bootstrap-4') }}
             </nav>
         </div>
         <!-- Side widgets-->

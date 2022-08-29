@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FrontPageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PenginapanController;
@@ -37,12 +38,9 @@ Route::get('/detail-transportasi', function () {
     return view('/user/transportasi/detail-transportasi');
 });
 
-Route::get('/blog', function () {
-    return view('/user/blog/blog');
-});
-Route::get('/blogDetail', function () {
-    return view('/user/blog/detailBlog');
-});
+
+Route::get('/blog', [FrontPageController::class, 'blog'])->name('blog');
+Route::get('/blog/{slug}', [FrontPageController::class, 'blogDetail'])->name('blog.detail');
 
 
 // Route::get('/admin/dataPenginapan', [PenginapanController::class, 'show']);
@@ -90,6 +88,16 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
         Route::get('/edit-data/{id}', [UserController::class, 'edit'])->name('admin.user.edit');
         Route::put('/edit-data/{id}', [UserController::class, 'update'])->name('admin.user.update');
         Route::delete('/{id}', [UserController::class, 'destroy'])->name('admin.user.hapus');
+    });
+
+    Route::group(['prefix' => 'blog'], function(){
+
+        Route::get('/', [BlogController::class, 'index'])->name('admin.blog');
+        Route::get('/tambah-data', [BlogController::class, 'create'])->name('admin.blog.tambah');
+        Route::post('/tambah-data', [BlogController::class, 'store'])->name('admin.blog.tambah.submit');
+        Route::get('/edit-data/{id}', [BlogController::class, 'edit'])->name('admin.blog.edit');
+        Route::put('/edit-data/{id}', [BlogController::class, 'update'])->name('admin.blog.update');
+        Route::delete('/{id}', [BlogController::class, 'destroy'])->name('admin.blog.hapus');
     });
     
     Route::get('/login', function () {
