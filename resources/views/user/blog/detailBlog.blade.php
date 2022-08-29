@@ -52,33 +52,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Categories widget-->
-            <!-- <div class="card mb-4">
-                <div class="card-header">Kategori</div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <ul class="list-unstyled mb-0">
-                                <li><a href="#!">Wisata</a></li>
-                                <li><a href="#!">Sport</a></li>
-                                <li><a href="#!">Tutorial</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6">
-                            <ul class="list-unstyled mb-0">
-                                <li><a href="#!">Wisata</a></li>
-                                <li><a href="#!">Sport</a></li>
-                                <li><a href="#!">Tutorial</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- Side widget-->
-            <!-- <div class="card mb-4">
-                <div class="card-header">Penting</div>
-                <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate voluptatum repellendus, aspernatur mollitia provident molestiae!</div>
-            </div> -->
         </div>
     </div>
 </div>
