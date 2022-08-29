@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title')</title>
+    <title>Wisata Pintu Angin - Virtual Tour</title>
+    <meta name="description" content="Wisata Pintu Angin - Virtual Tour, Desa Parenreng, Kec. Segeri, Kab. Pangkep.">
+    <meta name="keywords" content="wisata pintu angin, wisata parenreng, virtual tour parenreng, pintu angin, desa parenreng">
     <link rel="stylesheet" href="{{ asset('assets/frontend/libraries/bootstrap/css/bootstrap.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,700,800 | playfair+Display:400,400i,700,700i,900,900i&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
