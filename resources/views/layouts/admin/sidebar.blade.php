@@ -55,8 +55,8 @@
                      </span>
                  </a>
                  <ul class="treeview-menu">
-                     <li><a href="{{ url('admin/tambahUser') }}"><i class="fa fa-plus"></i> Tambah Data</a></li>
-                     <li><a href="{{ url('admin/dataUser') }}"><i class="fa fa-database"></i>Data User</a></li>
+                     <li><a href="{{ route('admin.user.tambah') }}"><i class="fa fa-plus"></i> Tambah Data</a></li>
+                     <li><a href="{{ route('admin.user') }}"><i class="fa fa-database"></i>Data User</a></li>
                  </ul>
              </li>
 

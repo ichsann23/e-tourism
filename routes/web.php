@@ -3,6 +3,7 @@
 use App\Http\Controllers\FrontPageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PenginapanController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -59,14 +60,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
         return view('admin/penginapan/tambahPenginapan');
     });
     
-    Route::get('/tambahUser', function () {
-        return view('admin/users/tambahUser');
-    });
-    
-    Route::get('/dataUser', function () {
-        return view('admin/users/dataUser');
-    });
-    
     Route::get('/dataTransportasi', function () {
         return view('/admin/transportasi/dataTransportasi');
     });
@@ -87,6 +80,16 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
         Route::get('/edit-data/{id}', [PenginapanController::class, 'edit'])->name('admin.penginapan.edit');
         Route::put('/edit-data/{id}', [PenginapanController::class, 'update'])->name('admin.penginapan.update');
         Route::delete('/{id}', [PenginapanController::class, 'destroy'])->name('admin.penginapan.hapus');
+    });
+
+    Route::group(['prefix' => 'user'], function(){
+
+        Route::get('/', [UserController::class, 'index'])->name('admin.user');
+        Route::get('/tambah-data', [UserController::class, 'create'])->name('admin.user.tambah');
+        Route::post('/tambah-data', [UserController::class, 'store'])->name('admin.user.tambah.submit');
+        Route::get('/edit-data/{id}', [UserController::class, 'edit'])->name('admin.user.edit');
+        Route::put('/edit-data/{id}', [UserController::class, 'update'])->name('admin.user.update');
+        Route::delete('/{id}', [UserController::class, 'destroy'])->name('admin.user.hapus');
     });
     
     Route::get('/login', function () {

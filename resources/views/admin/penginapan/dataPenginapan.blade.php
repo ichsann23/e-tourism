@@ -91,6 +91,7 @@
                                 </tr>
                             </tfoot>
                         </table>
+                        {{ $data->links('vendor.pagination.bootstrap-4') }}
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -131,7 +132,6 @@
 <script>
     //config datatable 
         $('#modalDelete').on('show.bs.modal', function(e) {
-            console.log('test');
             $(this).find('.act-ok').attr('action', $(e.relatedTarget).data('href'));
         });
 </script>
