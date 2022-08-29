@@ -18,8 +18,8 @@
                      </span>
                  </a>
                  <ul class="treeview-menu">
-                     <li><a href="{{ url('admin/tambahPenginapan') }}"><i class="fa fa-plus"></i>Tambah Data</a></li>
-                     <li><a href="{{ url('admin/dataPenginapan') }}"><i class="fa fa-database"></i>Data Penginapan</a></li>
+                     <li><a href="{{ route('admin.penginapan.tambah') }}"><i class="fa fa-plus"></i>Tambah Data</a></li>
+                     <li><a href="{{ route('admin.penginapan') }}"><i class="fa fa-database"></i>Data Penginapan</a></li>
                  </ul>
              </li>
              <li class="treeview">

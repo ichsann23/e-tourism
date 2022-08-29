@@ -19,10 +19,10 @@ class CreatePenginapansTable extends Migration
             $table->string('link');
             $table->string('fasilitas');
             $table->string('harga');
-            $table->string('ulasan');
+            $table->text('ulasan');
             $table->string('alamat');
             $table->string('nohp');
-            $table->string('foto');
+            $table->text('foto');
             $table->timestamps();
         });
     }

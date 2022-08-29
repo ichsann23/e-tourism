@@ -19,9 +19,15 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-sign-out"></i></a>
+                    {{-- <a href="#" data-toggle="control-sidebar"><i class="fa fa-sign-out"></i></a> --}}
+                    <a href="javascript:void(0)" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="dropdown-item" id="logout-button">
+                        <i class="fas fa-power-off mr-2"></i> Logout
+                    </a>
                 </li>
             </ul>
         </div>
     </nav>
+    <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 </header>

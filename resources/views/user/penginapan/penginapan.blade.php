@@ -13,66 +13,18 @@
 <section class="section-penginapan-content" id="penginapanContent">
     <div class="container">
         <div class="section-penginapan-travel row justify-content-center">
-            <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="card-travel text-center d-flex flex-column" style="background-image: url('{{ asset('assets/frontend/images/hotel.jpg') }}')">
-                    <div class="travel-country">REDDOORZ</div>
-                    <div class="travel-location">MAROS INDONESIA</div>
+            @foreach ($data as $item)
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card-travel text-center d-flex flex-column" style="background-image: url('{{ asset('storage/'.$item->foto) }}')">
+                    <div class="travel-country">{{ strtoupper($item->nama) }}</div>
+                    <div class="travel-location">{{ strtoupper($item->alamat) }}</div>
                     <div class="travel-button mt-auto">
-                        <a href="{{ url('detail-penginapan') }}" class="btn btn-travel-details px-4"> Selengkapnya </a>
-                    </div>  
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="card-travel text-center d-flex flex-column" style="background-image: url('{{ asset('assets/frontend/images/hotel.jpg') }}')">
-                    <div class="travel-country">HOTEL</div>
-                    <div class="travel-location">MAROS INDONESIA</div>
-                    <div class="travel-button mt-auto">
-                        <a href="#" class="btn btn-travel-details px-4"> Selengkapnya </a>
+                        <a href="{{ route('penginapan.detail', $item->id) }}" class="btn btn-travel-details px-4"> Selengkapnya </a>
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="card-travel text-center d-flex flex-column" style="background-image: url('{{ asset('assets/frontend/images/hotel.jpg') }}')">
-                    <div class="travel-country">HOTEL</div>
-                    <div class="travel-location">MAROS INDONESIA</div>
-                    <div class="travel-button mt-auto">
-                        <a href="#" class="btn btn-travel-details px-4"> Selengkapnya </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="card-travel text-center d-flex flex-column" style="background-image: url('{{ asset('assets/frontend/images/hotel.jpg') }}')">
-                    <div class="travel-country">HOTEL</div>
-                    <div class="travel-location">MAROS INDONESIA</div>
-                    <div class="travel-button mt-auto">
-                        <a href="#" class="btn btn-travel-details px-4"> Selengkapnya </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- baru -->
-            <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="card-travel text-center d-flex flex-column" style="background-image: url('{{ asset('assets/frontend/images/hotel.jpg') }}')">
-                    <div class="travel-country">REDDOORZ</div>
-                    <div class="travel-location">MAROS INDONESIA</div>
-                    <div class="travel-button mt-auto">
-                        <a href="{{ url('detail-penginapan') }}" class="btn btn-travel-details px-4"> Selengkapnya </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="card-travel text-center d-flex flex-column" style="background-image: url('{{ asset('assets/frontend/images/hotel.jpg') }}')">
-                    <div class="travel-country">HOTEL</div>
-                    <div class="travel-location">MAROS INDONESIA</div>
-                    <div class="travel-button mt-auto">
-                        <a href="#" class="btn btn-travel-details px-4"> Selengkapnya </a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            {{ $data->links('vendor.pagination.bootstrap-4') }}
         </div>
     </div>
 </section>
