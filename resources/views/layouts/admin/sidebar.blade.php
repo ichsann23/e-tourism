@@ -22,7 +22,7 @@
                      <li><a href="{{ route('admin.penginapan') }}"><i class="fa fa-database"></i>Data Penginapan</a></li>
                  </ul>
              </li>
-             <li class="treeview">
+             {{-- <li class="treeview">
                  <a href="#">
                      <i class="fa fa-car"></i> <span>Transportasi</span>
                      <span class="pull-right-container">
@@ -33,7 +33,7 @@
                      <li><a href="{{ url('admin/tambahTransportasi') }}"><i class="fa fa-plus"></i> Tambah Data</a></li>
                      <li><a href="{{ url('admin/dataTransportasi') }}"><i class="fa fa-database"></i>Data Transportasi</a></li>
                  </ul>
-             </li>
+             </li> --}}
              <li class="treeview">
                  <a href="#">
                      <i class="fa fa-book"></i> <span>Blog</span>
@@ -62,7 +62,7 @@
 
              <li class="treeview">
                  <a href="#">
-                     <i class="fa fa-sign-out"></i> <span>Keluar</span>
+                     <i class="fas fa-power-off"></i> <span>Keluar</span>
                  </a>
              </li>
 

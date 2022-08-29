@@ -6,7 +6,7 @@ use App\Models\Penginapan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\DB;
 class PenginapanController extends Controller
 {
     /**
@@ -102,8 +102,13 @@ class PenginapanController extends Controller
      * @param  \App\Models\penginapan  $penginapan
      * @return \Illuminate\Http\Response
      */
-    public function edit(penginapan $penginapan)
+    public function edit($id)
     {
+        $data = Penginapan::find($id);
+        
+        return view('admin.penginapan.editPenginapan', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -113,9 +118,53 @@ class PenginapanController extends Controller
      * @param  \App\Models\penginapan  $penginapan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, penginapan $penginapan)
+    public function update(Request $request, $id)
     {
-        //
+        $messages = [
+            'required' => ':attribute tidak boleh kosong.',
+            'mimes' => ':attribute harus berformat :values.',
+        ];
+
+        $request->validate([
+            'nama' => 'required',
+            'link' => 'required',
+            'alamat' => 'required',
+            'nohp' => 'required',
+            'harga' => 'required',
+            'fasilitas' => 'required',
+            'ulasan' => 'required',
+            'foto' => 'image|mimes:jepg,png,jpg|max:2048'
+        ], $messages);
+
+        if ($request->hasfile('foto')) {
+            $file = $request->file('foto');
+            $ext = $file->extension();
+            $fileName = Str::slug($request->nama, "-") . '-' . uniqid();
+
+            $urlName = 'assets/media/penginapan/' . $fileName . '.' . $ext;
+            $update['foto'] = $urlName;
+        }
+
+        $data = Penginapan::find($id);
+
+        $update['nama'] = $request->nama;
+        $update['link'] = $request->link;
+        $update['alamat'] = $request->alamat;
+        $update['nohp'] = $request->nohp;
+        $update['harga'] = $request->harga;
+        $update['fasilitas'] = $request->fasilitas;
+        $update['ulasan'] = $request->ulasan;
+
+        $save = Penginapan::where('id', $id)->update($update);
+
+        if ($save) {
+            if ($request->hasfile('foto')) {
+                $file->storeAs('public/assets/media/penginapan', $fileName . '.' . $ext);
+            }
+            return redirect()->route('admin.penginapan');
+        } else {
+            return redirect()->back();
+        }
     }
 
     /**

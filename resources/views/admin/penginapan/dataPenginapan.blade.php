@@ -57,7 +57,12 @@
                                         <td>{{$item->fasilitas}}</td>
                                         <td>{{$item->harga}}</td>
                                         <td class="">
-                                            {{-- <button type="button" class="btn btn-success "><i class="fa fa-edit"></i></button> --}}
+                                            <a 
+                                            type="button" 
+                                            href="{{ route('admin.penginapan.edit', $item->id) }}"
+                                            class="btn btn-success ">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
                                             <a 
                                                 href="#modalDelete" 
                                                 data-href="{{route('admin.penginapan.hapus', $item->id)}}"

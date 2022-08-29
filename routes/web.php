@@ -84,6 +84,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
         Route::get('/', [PenginapanController::class, 'index'])->name('admin.penginapan');
         Route::get('/tambah-data', [PenginapanController::class, 'create'])->name('admin.penginapan.tambah');
         Route::post('/tambah-data', [PenginapanController::class, 'store'])->name('admin.penginapan.tambah.submit');
+        Route::get('/edit-data/{id}', [PenginapanController::class, 'edit'])->name('admin.penginapan.edit');
+        Route::put('/edit-data/{id}', [PenginapanController::class, 'update'])->name('admin.penginapan.update');
         Route::delete('/{id}', [PenginapanController::class, 'destroy'])->name('admin.penginapan.hapus');
     });
     
