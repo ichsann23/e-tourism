@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+
 @section('title','Tambah data user')
 @section('content-header')
 <div class="content-wrapper">
